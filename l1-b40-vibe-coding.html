@@ -1,0 +1,1437 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usairim Web NDA — Gaming Universe</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #050508;
+    --bg2: #0c0c14;
+    --bg3: #12121e;
+    --surface: #1a1a2a;
+    --surface2: #22223a;
+    --accent: #00f5c4;
+    --accent2: #ff3e6c;
+    --accent3: #7b5ef8;
+    --text: #e8e8f0;
+    --text2: #8888aa;
+    --border: rgba(255,255,255,0.07);
+    --glow: 0 0 30px rgba(0, 245, 196, 0.25);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--accent3); border-radius: 2px; }
+
+  /* ===== GRID BACKGROUND ===== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(123,94,248,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(123,94,248,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    background: rgba(5,5,8,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(0,245,196,0.5);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: #000;
+    padding: 8px 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 1px;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: box-shadow 0.2s;
+  }
+
+  .nav-cta:hover { box-shadow: var(--glow); }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    padding: 80px 48px;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(123,94,248,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 30% 20%, rgba(0,245,196,0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-content { max-width: 620px; position: relative; z-index: 2; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,245,196,0.1);
+    border: 1px solid rgba(0,245,196,0.3);
+    padding: 6px 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 9vw, 110px);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 span {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--accent);
+  }
+
+  .hero p {
+    color: var(--text2);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 480px;
+  }
+
+  .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+    padding: 14px 36px;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 1px;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: box-shadow 0.2s;
+  }
+
+  .btn-primary:hover { box-shadow: 0 0 40px rgba(0,245,196,0.4); }
+
+  .btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--text2);
+    padding: 13px 36px;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--accent3); color: var(--text); }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--accent);
+    letter-spacing: 2px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* ===== HERO VISUAL ===== */
+  .hero-visual {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .hero-cards-grid {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 520px;
+    opacity: 0.85;
+  }
+
+  .hcard {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    aspect-ratio: 3/4;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hcard:nth-child(1) { margin-top: 60px; }
+  .hcard:nth-child(3) { margin-top: -60px; }
+  .hcard:nth-child(4) { margin-top: 20px; }
+
+  .hcard-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s;
+  }
+
+  .hcard:hover .hcard-bg { transform: scale(1.05); }
+
+  .hcard-bg.g1 { background: linear-gradient(135deg, #1a0030 0%, #3d1a78 50%, #7b5ef8 100%); }
+  .hcard-bg.g2 { background: linear-gradient(135deg, #001a1a 0%, #004444 50%, #00f5c4 100%); }
+  .hcard-bg.g3 { background: linear-gradient(135deg, #1a0010 0%, #4a0020 50%, #ff3e6c 100%); }
+  .hcard-bg.g4 { background: linear-gradient(135deg, #0a0a1a 0%, #1e1e40 50%, #3a3a7a 100%); }
+
+  .hcard-art {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    opacity: 0.4;
+  }
+
+  .hcard-info {
+    position: relative;
+    z-index: 2;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+    width: 100%;
+  }
+
+  .hcard-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: white;
+  }
+
+  .hcard-genre {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ===== SECTION ===== */
+  section { position: relative; z-index: 1; padding: 80px 48px; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  .see-all {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    margin-bottom: 8px;
+  }
+
+  .see-all:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ===== FEATURED GAMES ===== */
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .game-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .game-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(123,94,248,0.4);
+  }
+
+  .game-thumb {
+    aspect-ratio: 16/9;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+  }
+
+  .game-thumb-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    transition: transform 0.4s;
+  }
+
+  .game-card:hover .game-thumb-bg { transform: scale(1.08); }
+
+  .t1 { background: linear-gradient(135deg, #0d0030 0%, #2a0060 60%, #6030c0 100%); }
+  .t2 { background: linear-gradient(135deg, #001a10 0%, #003020 60%, #00c860 100%); }
+  .t3 { background: linear-gradient(135deg, #1a0500 0%, #401000 60%, #c04010 100%); }
+  .t4 { background: linear-gradient(135deg, #00101a 0%, #002030 60%, #0060a0 100%); }
+  .t5 { background: linear-gradient(135deg, #1a0020 0%, #400050 60%, #c000c0 100%); }
+  .t6 { background: linear-gradient(135deg, #0a0a00 0%, #201a00 60%, #806000 100%); }
+
+  .thumb-icon {
+    position: relative;
+    z-index: 1;
+    opacity: 0.5;
+  }
+
+  .game-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    background: var(--accent2);
+    color: white;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    text-transform: uppercase;
+  }
+
+  .game-info { padding: 16px; }
+
+  .game-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .game-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text2);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .game-genre { color: var(--accent3); text-transform: uppercase; }
+
+  .game-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #f0c030;
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* ===== FEATURED ROW ===== */
+  .featured-big {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 16px;
+    margin-bottom: 80px;
+  }
+
+  .feat-main {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+
+  .feat-main:hover { border-color: rgba(0,245,196,0.4); }
+
+  .feat-main-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #050010 0%, #0f0030 40%, #2a0070 70%, #5010b0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 160px;
+    opacity: 0.3;
+  }
+
+  .feat-main-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+  }
+
+  .feat-main-content { position: relative; z-index: 2; padding: 36px; }
+
+  .feat-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 4px 12px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .feat-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .feat-desc {
+    color: var(--text2);
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    max-width: 400px;
+  }
+
+  .feat-play {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #000;
+    padding: 10px 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: box-shadow 0.2s;
+  }
+
+  .feat-play:hover { box-shadow: var(--glow); }
+
+  .feat-side { display: flex; flex-direction: column; gap: 16px; }
+
+  .feat-side-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .feat-side-card:hover { border-color: rgba(123,94,248,0.4); }
+
+  .feat-side-thumb {
+    width: 120px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feat-side-thumb-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .fs1 { background: linear-gradient(135deg, #0d1a00 0%, #1e3a00 60%, #3a7000 100%); }
+  .fs2 { background: linear-gradient(135deg, #1a0a00 0%, #3a1500 60%, #8a3000 100%); }
+  .fs3 { background: linear-gradient(135deg, #001020 0%, #002040 60%, #005090 100%); }
+
+  .feat-side-info { padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+
+  .feat-side-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .feat-side-genre {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent3);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .feat-side-price {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ===== CATEGORIES ===== */
+  .categories-section { background: var(--bg2); }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+
+  .cat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .cat-card:hover {
+    background: var(--surface2);
+    border-color: rgba(123,94,248,0.4);
+  }
+
+  .cat-icon { font-size: 32px; margin-bottom: 10px; display: block; }
+
+  .cat-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .cat-count {
+    font-size: 11px;
+    color: var(--text2);
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* ===== LEADERBOARD ===== */
+  .leaderboard-section { background: var(--bg3); }
+
+  .leaderboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .lb-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .lb-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .lb-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+
+  .lb-game-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--accent3);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .lb-row {
+    display: flex;
+    align-items: center;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+    transition: background 0.15s;
+  }
+
+  .lb-row:last-child { border-bottom: none; }
+  .lb-row:hover { background: rgba(255,255,255,0.02); }
+
+  .lb-rank {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    width: 32px;
+    color: var(--text2);
+  }
+
+  .lb-rank.gold { color: #f0c030; }
+  .lb-rank.silver { color: #a0a0b0; }
+  .lb-rank.bronze { color: #c07040; }
+
+  .lb-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .lb-info { flex: 1; }
+
+  .lb-name {
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+
+  .lb-sub {
+    font-size: 11px;
+    color: var(--text2);
+    font-family: 'Space Mono', monospace;
+  }
+
+  .lb-score {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  /* ===== NEWS ===== */
+  .news-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  .news-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .news-card:hover { border-color: rgba(123,94,248,0.4); }
+
+  .news-img {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .n1 { background: linear-gradient(135deg, #080020 0%, #1a004a 60%, #4a10a0 100%); }
+  .n2 { background: linear-gradient(135deg, #001510 0%, #003020 60%, #006040 100%); }
+  .n3 { background: linear-gradient(135deg, #100000 0%, #300010 60%, #800040 100%); }
+
+  .news-img-icon { position: relative; z-index: 1; opacity: 0.5; }
+
+  .news-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    z-index: 2;
+    background: var(--accent3);
+    color: white;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    text-transform: uppercase;
+  }
+
+  .news-body { padding: 20px; }
+
+  .news-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .news-card:first-child .news-title { font-size: 30px; }
+
+  .news-excerpt {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.6;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .news-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text2);
+    letter-spacing: 1px;
+  }
+
+  /* ===== CTA BANNER ===== */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--bg2) 0%, rgba(123,94,248,0.1) 50%, var(--bg2) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-banner::before {
+    content: 'UWN';
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 320px;
+    color: rgba(123,94,248,0.04);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 20px;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .cta-subtitle {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 7vw, 80px);
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+  }
+
+  .cta-text {
+    color: var(--text2);
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 60px 48px 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand .nav-logo { display: inline-block; margin-bottom: 16px; }
+
+  .footer-desc {
+    color: var(--text2);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .footer-social { display: flex; gap: 12px; }
+
+  .social-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 16px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .social-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .footer-col h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .footer-col a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--accent); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--text2);
+    letter-spacing: 1px;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content { animation: floatUp 0.8s ease forwards; }
+  .hero-badge { animation: floatUp 0.6s 0.1s ease both; }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo" style="font-size:18px;letter-spacing:1px;">USAIRIM WEB NDA</a>
+  <ul class="nav-links">
+    <li><a href="#">Games</a></li>
+    <li><a href="#">Community</a></li>
+    <li><a href="#">Tournaments</a></li>
+    <li><a href="#">News</a></li>
+    <li><a href="#">Store</a></li>
+  </ul>
+  <a href="#" class="nav-cta">JOIN FREE</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">SEASON 7 — NOW LIVE</div>
+    <h1>PLAY.<br><span>COMPETE.</span><br>CONQUER.</h1>
+    <p>The ultimate gaming universe. Thousands of titles, epic tournaments, and a community of 12 million warriors. Your legend starts here.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">▶ EXPLORE GAMES</a>
+      <a href="#" class="btn-secondary">WATCH STREAMS</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">12M+</div>
+        <div class="stat-label">Players Online</div>
+      </div>
+      <div>
+        <div class="stat-num">4,800</div>
+        <div class="stat-label">Game Titles</div>
+      </div>
+      <div>
+        <div class="stat-num">$2.4M</div>
+        <div class="stat-label">Prize Pool</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-cards-grid">
+      <div class="hcard">
+        <div class="hcard-bg g1"></div>
+        <div class="hcard-art">⚔️</div>
+        <div class="hcard-info">
+          <div class="hcard-genre">RPG</div>
+          <div class="hcard-title">VOID REALM</div>
+        </div>
+      </div>
+      <div class="hcard">
+        <div class="hcard-bg g2"></div>
+        <div class="hcard-art">🌐</div>
+        <div class="hcard-info">
+          <div class="hcard-genre">STRATEGY</div>
+          <div class="hcard-title">EPOCH</div>
+        </div>
+      </div>
+      <div class="hcard">
+        <div class="hcard-bg g3"></div>
+        <div class="hcard-art">🔫</div>
+        <div class="hcard-info">
+          <div class="hcard-genre">FPS</div>
+          <div class="hcard-title">CRIMSON</div>
+        </div>
+      </div>
+      <div class="hcard">
+        <div class="hcard-bg g4"></div>
+        <div class="hcard-art">🚀</div>
+        <div class="hcard-info">
+          <div class="hcard-genre">SCI-FI</div>
+          <div class="hcard-title">STELLAR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED + TRENDING -->
+<section>
+  <!-- Big Feature -->
+  <div class="featured-big">
+    <a href="#" class="feat-main">
+      <div class="feat-main-bg">🌑</div>
+      <div class="feat-main-overlay"></div>
+      <div class="feat-main-content">
+        <div class="feat-tag">EDITOR'S PICK</div>
+        <div class="feat-title">ABYSSAL<br>THRONE</div>
+        <div class="feat-desc">A dark fantasy RPG with 80+ hours of brutal gameplay. Forge your legend in the eternal void.</div>
+        <a href="#" class="feat-play">▶ &nbsp;PLAY NOW — FREE</a>
+      </div>
+    </a>
+    <div class="feat-side">
+      <a href="#" class="feat-side-card">
+        <div class="feat-side-thumb">
+          <div class="feat-side-thumb-bg fs1"></div>
+          <span style="position:relative;z-index:1;opacity:0.6;font-size:40px;">🌿</span>
+        </div>
+        <div class="feat-side-info">
+          <div class="feat-side-genre">Survival</div>
+          <div class="feat-side-title">VERDANT WILDS</div>
+          <div class="feat-side-price">FREE TO PLAY</div>
+        </div>
+      </a>
+      <a href="#" class="feat-side-card">
+        <div class="feat-side-thumb">
+          <div class="feat-side-thumb-bg fs2"></div>
+          <span style="position:relative;z-index:1;opacity:0.6;font-size:40px;">🔥</span>
+        </div>
+        <div class="feat-side-info">
+          <div class="feat-side-genre">Battle Royale</div>
+          <div class="feat-side-title">IGNITION</div>
+          <div class="feat-side-price">$9.99</div>
+        </div>
+      </a>
+      <a href="#" class="feat-side-card">
+        <div class="feat-side-thumb">
+          <div class="feat-side-thumb-bg fs3"></div>
+          <span style="position:relative;z-index:1;opacity:0.6;font-size:40px;">🌊</span>
+        </div>
+        <div class="feat-side-info">
+          <div class="feat-side-genre">Naval Sim</div>
+          <div class="feat-side-title">TIDAL FORCE</div>
+          <div class="feat-side-price">$19.99</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Trending Games -->
+  <div class="section-header">
+    <div>
+      <div class="section-label">// POPULAR NOW</div>
+      <div class="section-title">TRENDING GAMES</div>
+    </div>
+    <a href="#" class="see-all">VIEW ALL GAMES →</a>
+  </div>
+
+  <div class="games-grid">
+    <a href="#" class="game-card">
+      <div class="game-thumb">
+        <div class="game-thumb-bg t1"></div>
+        <span class="thumb-icon">🗡️</span>
+        <div class="game-badge">HOT</div>
+      </div>
+      <div class="game-info">
+        <div class="game-title">SHADOW RIFT</div>
+        <div class="game-meta">
+          <span class="game-genre">Action RPG</span>
+          <span class="game-rating">★ 4.9</span>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="game-card">
+      <div class="game-thumb">
+        <div class="game-thumb-bg t2"></div>
+        <span class="thumb-icon">🌱</span>
+      </div>
+      <div class="game-info">
+        <div class="game-title">BIOME WARS</div>
+        <div class="game-meta">
+          <span class="game-genre">Strategy</span>
+          <span class="game-rating">★ 4.7</span>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="game-card">
+      <div class="game-thumb">
+        <div class="game-thumb-bg t3"></div>
+        <span class="thumb-icon">💥</span>
+        <div class="game-badge">NEW</div>
+      </div>
+      <div class="game-info">
+        <div class="game-title">INFERNO RUN</div>
+        <div class="game-meta">
+          <span class="game-genre">FPS</span>
+          <span class="game-rating">★ 4.8</span>
+        </div>
+      </div>
+    </a>
+    <a href="#" class="game-card">
+      <div class="game-thumb">
+        <div class="game-thumb-bg t4"></div>
+        <span class="thumb-icon">🚀</span>
+      </div>
+      <div class="game-info">
+        <div class="game-title">DEEP ORBIT</div>
+        <div class="game-meta">
+          <span class="game-genre">Sci-Fi</span>
+          <span class="game-rating">★ 4.6</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section">
+  <div class="section-header">
+    <div>
+      <div class="section-label">// BROWSE BY TYPE</div>
+      <div class="section-title">CATEGORIES</div>
+    </div>
+  </div>
+  <div class="categories-grid">
+    <a href="#" class="cat-card">
+      <span class="cat-icon">⚔️</span>
+      <div class="cat-name">ACTION</div>
+      <div class="cat-count">1,240 games</div>
+    </a>
+    <a href="#" class="cat-card">
+      <span class="cat-icon">🔮</span>
+      <div class="cat-name">RPG</div>
+      <div class="cat-count">890 games</div>
+    </a>
+    <a href="#" class="cat-card">
+      <span class="cat-icon">🧩</span>
+      <div class="cat-name">PUZZLE</div>
+      <div class="cat-count">640 games</div>
+    </a>
+    <a href="#" class="cat-card">
+      <span class="cat-icon">🏎️</span>
+      <div class="cat-name">RACING</div>
+      <div class="cat-count">380 games</div>
+    </a>
+    <a href="#" class="cat-card">
+      <span class="cat-icon">⚽</span>
+      <div class="cat-name">SPORTS</div>
+      <div class="cat-count">510 games</div>
+    </a>
+    <a href="#" class="cat-card">
+      <span class="cat-icon">🌌</span>
+      <div class="cat-name">SCI-FI</div>
+      <div class="cat-count">720 games</div>
+    </a>
+  </div>
+</section>
+
+<!-- LEADERBOARD -->
+<section class="leaderboard-section">
+  <div class="section-header">
+    <div>
+      <div class="section-label">// GLOBAL RANKINGS</div>
+      <div class="section-title">LEADERBOARDS</div>
+    </div>
+    <a href="#" class="see-all">FULL RANKINGS →</a>
+  </div>
+  <div class="leaderboard-grid">
+    <div class="lb-card">
+      <div class="lb-header">
+        <div class="lb-title">SHADOW RIFT</div>
+        <div class="lb-game-tag">// SEASON 7</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank gold">01</div>
+        <div class="lb-avatar" style="background:rgba(123,94,248,0.2);color:#7b5ef8;">KX</div>
+        <div class="lb-info">
+          <div class="lb-name">KrakenX</div>
+          <div class="lb-sub">NA — DIAMOND</div>
+        </div>
+        <div class="lb-score">148,920</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank silver">02</div>
+        <div class="lb-avatar" style="background:rgba(0,245,196,0.15);color:#00f5c4;">VX</div>
+        <div class="lb-info">
+          <div class="lb-name">VortexQ</div>
+          <div class="lb-sub">EU — DIAMOND</div>
+        </div>
+        <div class="lb-score">141,550</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank bronze">03</div>
+        <div class="lb-avatar" style="background:rgba(255,62,108,0.15);color:#ff3e6c;">NR</div>
+        <div class="lb-info">
+          <div class="lb-name">NightReaper</div>
+          <div class="lb-sub">APAC — MASTER</div>
+        </div>
+        <div class="lb-score">139,200</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank" style="color:var(--text2)">04</div>
+        <div class="lb-avatar" style="background:rgba(255,255,255,0.07);color:#888;">ZK</div>
+        <div class="lb-info">
+          <div class="lb-name">ZephyrKill</div>
+          <div class="lb-sub">NA — MASTER</div>
+        </div>
+        <div class="lb-score">132,880</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank" style="color:var(--text2)">05</div>
+        <div class="lb-avatar" style="background:rgba(255,255,255,0.07);color:#888;">IS</div>
+        <div class="lb-info">
+          <div class="lb-name">IceShard</div>
+          <div class="lb-sub">EU — MASTER</div>
+        </div>
+        <div class="lb-score">128,440</div>
+      </div>
+    </div>
+    <div class="lb-card">
+      <div class="lb-header">
+        <div class="lb-title">BIOME WARS</div>
+        <div class="lb-game-tag">// SEASON 3</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank gold">01</div>
+        <div class="lb-avatar" style="background:rgba(0,245,196,0.2);color:#00f5c4;">ST</div>
+        <div class="lb-info">
+          <div class="lb-name">StormTracer</div>
+          <div class="lb-sub">EU — LEGEND</div>
+        </div>
+        <div class="lb-score">99,410</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank silver">02</div>
+        <div class="lb-avatar" style="background:rgba(123,94,248,0.2);color:#7b5ef8;">PX</div>
+        <div class="lb-info">
+          <div class="lb-name">ProxyX</div>
+          <div class="lb-sub">NA — LEGEND</div>
+        </div>
+        <div class="lb-score">96,880</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank bronze">03</div>
+        <div class="lb-avatar" style="background:rgba(255,62,108,0.15);color:#ff3e6c;">BL</div>
+        <div class="lb-info">
+          <div class="lb-name">BlazeLord</div>
+          <div class="lb-sub">APAC — DIAMOND</div>
+        </div>
+        <div class="lb-score">90,220</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank" style="color:var(--text2)">04</div>
+        <div class="lb-avatar" style="background:rgba(255,255,255,0.07);color:#888;">EX</div>
+        <div class="lb-info">
+          <div class="lb-name">EchoX</div>
+          <div class="lb-sub">EU — DIAMOND</div>
+        </div>
+        <div class="lb-score">87,660</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank" style="color:var(--text2)">05</div>
+        <div class="lb-avatar" style="background:rgba(255,255,255,0.07);color:#888;">NV</div>
+        <div class="lb-info">
+          <div class="lb-name">NovaVoid</div>
+          <div class="lb-sub">SA — DIAMOND</div>
+        </div>
+        <div class="lb-score">84,100</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section>
+  <div class="section-header">
+    <div>
+      <div class="section-label">// LATEST UPDATES</div>
+      <div class="section-title">GAMING NEWS</div>
+    </div>
+    <a href="#" class="see-all">ALL NEWS →</a>
+  </div>
+  <div class="news-grid">
+    <a href="#" class="news-card">
+      <div class="news-img n1">
+        <span class="news-img-icon" style="font-size:80px;">🏆</span>
+        <div class="news-tag">TOURNAMENT</div>
+      </div>
+      <div class="news-body">
+        <div class="news-title">USAIRIM WEB NDA WORLD CHAMPIONSHIP 2026: $2.4M PRIZE POOL ANNOUNCED</div>
+        <div class="news-excerpt">The biggest esports event of the decade is here. 64 teams from 32 nations compete for the ultimate crown across five game titles.</div>
+        <div class="news-date">MAY 06, 2026</div>
+      </div>
+    </a>
+    <a href="#" class="news-card">
+      <div class="news-img n2" style="height:160px;">
+        <span class="news-img-icon" style="font-size:50px;">🎮</span>
+        <div class="news-tag">UPDATE</div>
+      </div>
+      <div class="news-body">
+        <div class="news-title">SHADOW RIFT SEASON 7 PATCH DROPS NEW HERO CLASS</div>
+        <div class="news-excerpt">The Phantom Warden joins the roster with unique stealth mechanics.</div>
+        <div class="news-date">MAY 04, 2026</div>
+      </div>
+    </a>
+    <a href="#" class="news-card">
+      <div class="news-img n3" style="height:160px;">
+        <span class="news-img-icon" style="font-size:50px;">⚡</span>
+        <div class="news-tag">RELEASE</div>
+      </div>
+      <div class="news-body">
+        <div class="news-title">INFERNO RUN LAUNCHES WITH SURPRISE FREE WEEKEND</div>
+        <div class="news-excerpt">Try the hottest new FPS for free through May 12th.</div>
+        <div class="news-date">MAY 02, 2026</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="cta-subtitle">// START YOUR JOURNEY</div>
+  <div class="cta-title">JOIN 12 MILLION<br>WARRIORS TODAY</div>
+  <div class="cta-text">Free to start. Thousands of games. Epic tournaments daily. Your legend is one click away.</div>
+  <div class="cta-actions">
+    <a href="#" class="btn-primary">CREATE FREE ACCOUNT</a>
+    <a href="#" class="btn-secondary">EXPLORE GAMES</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="font-size:18px;letter-spacing:1px;">USAIRIM WEB NDA</a>
+      <div class="footer-desc">The ultimate gaming universe. Play, compete, and connect with millions of players worldwide.</div>
+      <div class="footer-social">
+        <a href="#" class="social-btn">𝕏</a>
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">▶</a>
+        <a href="#" class="social-btn">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>GAMES</h4>
+      <ul>
+        <li><a href="#">New Releases</a></li>
+        <li><a href="#">Top Rated</a></li>
+        <li><a href="#">Free to Play</a></li>
+        <li><a href="#">Early Access</a></li>
+        <li><a href="#">Browse All</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>COMMUNITY</h4>
+      <ul>
+        <li><a href="#">Tournaments</a></li>
+        <li><a href="#">Leaderboards</a></li>
+        <li><a href="#">Forums</a></li>
+        <li><a href="#">Streams</a></li>
+        <li><a href="#">Clans</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>SUPPORT</h4>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 USAIRIM WEB NDA — ALL RIGHTS RESERVED</div>
+    <div class="footer-copy">BUILT FOR WARRIORS WORLDWIDE</div>
+  </div>
+</footer>
+
+</body>
+</html>
