@@ -1,0 +1,1 @@
+Install LocalWP on your pc, open it, Write your website name, do not change domain or file location. Then write your Admin Panel name and password, make sure to save it.
