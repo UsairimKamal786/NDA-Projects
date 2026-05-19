@@ -1,0 +1,672 @@
+Playlist of course: https://www.youtube.com/playlist?list=PLiJJruzX_AvUjRSen5r9uxxd-aTOqDBig
+
+
+Sitemap plan (items):
+HOME
+│
+├── Featured Games
+│   ├── Trending Games
+│   ├── New Releases
+│   ├── Top Rated Games
+│   └── Editor’s Picks
+│
+├── Online Games
+│   ├── Action Games
+│   ├── Racing Games
+│   ├── Adventure Games
+│   ├── Puzzle Games
+│   ├── Horror Games
+│   ├── Multiplayer Games
+│   ├── Battle Royale
+│   └── Browser Games
+│
+├── Download Games
+│   ├── PC Games
+│   ├── Android Games
+│   ├── iOS Games
+│   ├── Windows Games
+│   ├── Low-End PC Games
+│   ├── High Graphics Games
+│   └── Offline Games
+│
+├── Game Categories
+│   ├── FPS Games
+│   ├── RPG Games
+│   ├── Sandbox Games
+│   ├── Open World Games
+│   ├── Sports Games
+│   ├── Survival Games
+│   └── Indie Games
+│
+├── Popular Titles
+│   ├── Minecraft
+│   ├── GTA Series
+│   ├── Fortnite
+│   ├── PUBG
+│   ├── Valorant
+│   ├── Roblox
+│   └── Call of Duty
+│
+├── Gaming News
+│   ├── Latest News
+│   ├── Updates & Patches
+│   ├── Esports News
+│   └── Upcoming Releases
+│
+├── Reviews
+│   ├── Game Reviews
+│   ├── Hardware Reviews
+│   ├── Mobile Reviews
+│   └── Ratings
+│
+├── Guides & Tutorials
+│   ├── Beginner Guides
+│   ├── Walkthroughs
+│   ├── Tips & Tricks
+│   ├── FPS Improvement
+│   ├── Settings Optimization
+│   └── Mod Installation
+│
+├── Mods & Addons
+│   ├── Minecraft Mods
+│   ├── GTA Mods
+│   ├── Texture Packs
+│   ├── Skins
+│   └── Custom Maps
+│
+├── Downloads
+│   ├── Game Launchers
+│   ├── Save Files
+│   ├── Wallpapers
+│   ├── Game Tools
+│   └── Emulators
+│
+├── Community
+│   ├── Forums
+│   ├── Discord Server
+│   ├── User Profiles
+│   ├── Leaderboards
+│   └── Fan Creations
+│
+├── Esports
+│   ├── Tournaments
+│   ├── Teams
+│   ├── Match Schedules
+│   └── Live Streams
+│
+├── Store
+│   ├── Merchandise
+│   ├── Gift Cards
+│   ├── Gaming Accessories
+│   └── Premium Membership
+│
+├── Account
+│   ├── Login
+│   ├── Register
+│   ├── User Dashboard
+│   ├── Saved Games
+│   └── Download History
+│
+├── About Us
+│   ├── Our Team
+│   ├── Careers
+│   └── Contact Us
+│
+├── Support
+│   ├── FAQs
+│   ├── Report a Problem
+│   ├── DMCA
+│   └── Privacy Policy
+│
+└── Social Media
+    ├── YouTube
+    ├── TikTok
+    ├── Instagram
+    ├── Facebook
+    └── X / Twitter
+
+
+
+
+Sitemap plan (UI)
+
+------------------------------------------------
+TOP BAR
+- Logo
+- Search Bar
+- Login/Register
+- Dark Mode Toggle
+------------------------------------------------
+NAVIGATION MENU
+Home | Online Games | Download Games | News |
+Reviews | Community | Esports | Store
+------------------------------------------------
+HERO SECTION
+- Big Gaming Banner
+- “Play Now” Button
+- “Download” Button
+- Featured Game Slider
+------------------------------------------------
+TRENDING GAMES SECTION
+[ Game Cards Grid ]
+------------------------------------------------
+ONLINE GAMES SECTION
+- Instant Play Cards
+------------------------------------------------
+DOWNLOAD GAMES SECTION
+- PC / Android / iOS Tabs
+------------------------------------------------
+LATEST NEWS
+------------------------------------------------
+ESPORTS LIVE
+------------------------------------------------
+COMMUNITY POSTS
+------------------------------------------------
+FOOTER
+Links + Social Media + Newsletter
+------------------------------------------------
+
+
+Sitemap plan (Admin Panel)
+ADMIN PANEL
+│
+├── Dashboard
+│   ├── Website Statistics
+│   ├── Total Users
+│   ├── Active Players
+│   ├── Total Games
+│   ├── Revenue Analytics
+│   ├── Latest Activity
+│   └── Quick Actions
+│
+├── Game Management
+│   │
+│   ├── Add New Game
+│   ├── Edit Games
+│   ├── Delete Games
+│   ├── Featured Games
+│   ├── Game Categories
+│   ├── Game Tags
+│   ├── Upload Thumbnails
+│   ├── Upload Screenshots
+│   ├── Upload Game Files
+│   └── SEO Settings
+│
+├── Online Games Manager
+│   ├── HTML5 Game Upload
+│   ├── Embed Game
+│   ├── Unity WebGL Upload
+│   ├── Game Controls Setup
+│   ├── Fullscreen Settings
+│   └── Ads Placement
+│
+├── Downloadable Games Manager
+│   ├── PC Games
+│   ├── Android APK Upload
+│   ├── iOS Links
+│   ├── File Manager
+│   ├── Download Mirrors
+│   ├── Version Updates
+│   ├── System Requirements
+│   └── Virus Scan Status
+│
+├── Posts & Blog
+│   ├── Create Post
+│   ├── Edit Post
+│   ├── Categories
+│   ├── Tags
+│   ├── Featured Images
+│   ├── Scheduled Posts
+│   ├── Drafts
+│   └── SEO Optimization
+│
+├── Media Library
+│   ├── Images
+│   ├── Videos
+│   ├── Game Files
+│   ├── Audio
+│   └── File Compression
+│
+├── User Management
+│   ├── All Users
+│   ├── Roles & Permissions
+│   ├── Ban/Suspend Users
+│   ├── Moderators
+│   ├── Admins
+│   └── User Activity Logs
+│
+├── Community Management
+│   ├── Forums
+│   ├── Comments
+│   ├── Reports
+│   ├── Reviews Moderation
+│   ├── Chat System
+│   └── Leaderboards
+│
+├── Esports Management
+│   ├── Create Tournament
+│   ├── Teams
+│   ├── Match Scheduling
+│   ├── Prize Pools
+│   └── Live Streams
+│
+├── Advertisement Manager
+│   ├── Banner Ads
+│   ├── Video Ads
+│   ├── Popup Ads
+│   ├── Google AdSense
+│   ├── Sponsors
+│   └── Ad Analytics
+│
+├── Monetization
+│   ├── Premium Memberships
+│   ├── Subscriptions
+│   ├── Donations
+│   ├── Affiliate Links
+│   ├── Coupons
+│   └── Store Orders
+│
+├── Notifications
+│   ├── Push Notifications
+│   ├── Email Notifications
+│   ├── User Alerts
+│   └── Announcements
+│
+├── SEO & Marketing
+│   ├── Meta Titles
+│   ├── Meta Descriptions
+│   ├── Sitemap.xml
+│   ├── Google Indexing
+│   ├── Analytics
+│   └── Social Sharing
+│
+├── Security
+│   ├── Login Security
+│   ├── Firewall
+│   ├── Backup System
+│   ├── Activity Logs
+│   ├── Anti-Spam
+│   └── Two Factor Authentication
+│
+├── Settings
+│   ├── General Settings
+│   ├── Theme Customization
+│   ├── Homepage Builder
+│   ├── API Integrations
+│   ├── Email Settings
+│   └── Performance Optimization
+│
+└── Support Center
+    ├── Tickets
+    ├── Contact Messages
+    ├── FAQs
+    └── Reports
+
+Sitemap plan (Admin panel UI):
+------------------------------------------------
+SIDEBAR
+Dashboard
+Games
+Posts
+Users
+Community
+Esports
+Ads
+SEO
+Settings
+------------------------------------------------
+
+TOP BAR
+Search | Notifications | Messages | Admin Profile
+------------------------------------------------
+
+MAIN DASHBOARD
+[ Stats Cards ]
+- Total Users
+- Total Games
+- Revenue
+- Active Players
+
+[ Charts ]
+- Website Traffic
+- Downloads
+- User Growth
+
+[ Recent Activity ]
+------------------------------------------------
+
+
+Sitemap plan (“Add Game” Professional Form):
+Game Title
+Game Description
+Category
+Tags
+Thumbnail Upload
+Screenshots Upload
+Game Type:
+( ) Online
+( ) Downloadable
+
+If Online:
+- Embed Code
+- HTML5 ZIP Upload
+- Unity WebGL Upload
+
+If Downloadable:
+- EXE/APK/ZIP Upload
+- Download Links
+- System Requirements
+
+SEO Settings
+Publish Button
+
+
+Sitemap plan (Navigation)
+┌──────────────────────────────────────────────┐
+│ LOGO                     Search 🔍   Login   │
+├──────────────────────────────────────────────┤
+│ Home                                         │
+│ Games ▼                                      │
+│ News ▼                                       │
+│ Community ▼                                  │
+│ Esports ▼                                    │
+│ Downloads ▼                                  │
+│ Store ▼                                      │
+│ Support ▼                                    │
+└──────────────────────────────────────────────┘
+
+
+Sitemap plan (Full navigation menu sturcture)
+
+NAVIGATION
+│
+├── Home
+│
+├── Games
+│   ├── Online Games
+│   ├── Download Games
+│   ├── Popular Games
+│   ├── New Releases
+│   ├── Top Rated
+│   └── Categories
+│       ├── Action
+│       ├── FPS
+│       ├── Horror
+│       ├── Racing
+│       ├── RPG
+│       └── Open World
+│
+├── News
+│   ├── Gaming News
+│   ├── Reviews
+│   ├── Updates
+│   ├── Trailers
+│   └── Esports News
+│
+├── Community
+│   ├── Forums
+│   ├── Discord
+│   ├── Leaderboards
+│   ├── Teams/Clans
+│   └── User Profiles
+│
+├── Esports
+│   ├── Tournaments
+│   ├── Live Matches
+│   ├── Rankings
+│   ├── Teams
+│   └── Prize Pools
+│
+├── Downloads
+│   ├── Game Launchers
+│   ├── Mods
+│   ├── Texture Packs
+│   ├── Wallpapers
+│   └── Tools
+│
+├── Store
+│   ├── Merchandise
+│   ├── Accessories
+│   ├── Gift Cards
+│   ├── Premium
+│   └── Deals
+│
+├── Support
+│   ├── Help Center
+│   ├── Contact Us
+│   ├── FAQs
+│   ├── Report Problem
+│   └── DMCA
+│
+└── Account
+    ├── Login
+    ├── Register
+    ├── Dashboard
+    ├── Favorites
+    └── Settings
+
+
+Professional Topbar
+[Logo]
+[Search Bar]
+[Notifications 🔔]
+[Dark Mode 🌙]
+[Profile Avatar]
+Mobile Navigation 📱
+🏠 Home
+🎮 Games
+📰 News
+💬 Community
+👤 Account
+Mega Menu Example (Games) 🎮
+------------------------------------------------
+ONLINE GAMES
+- Action
+- Racing
+- Multiplayer
+
+DOWNLOAD GAMES
+- PC
+- Android
+- iOS
+
+POPULAR
+- GTA V
+- Minecraft
+- Fortnite
+------------------------------------------------
+Professional Navigation Features
+
+✅ Sticky Navbar
+✅ Animated Dropdown Menus
+✅ Mega Menus
+✅ Search Suggestions
+✅ Mobile Hamburger Menu
+✅ Notification Dropdown
+✅ User Avatar Menu
+✅ Dark/Light Toggle
+✅ Smooth Hover Effects
+✅ Responsive Design
+
+Recommended Navigation Style
+Element	Style
+Navbar	Glassmorphism
+Hover	Neon Glow
+Dropdown	Smooth Fade
+Mobile Menu	Slide Animation
+Icons	Minimal RGB
+Navigation Inspiration
+
+Inspired by:
+
+Steam
+Epic Games
+Twitch
+Discord
+
+
+
+Legal & Company Pages Structure — “Usairim Gaming” ⚖️🎮
+LEGAL & COMPANY PAGES
+│
+├── About Us
+│   ├── Our Story
+│   ├── Mission & Vision
+│   ├── Meet The Team
+│   ├── Careers
+│   └── Partners
+│
+├── Contact Us
+│   ├── Support Form
+│   ├── Business Inquiries
+│   ├── Advertise With Us
+│   ├── Report Issues
+│   └── Social Media Links
+│
+├── Privacy Policy
+│   ├── Data Collection
+│   ├── Cookies Policy
+│   ├── User Information
+│   ├── Third-Party Services
+│   ├── Security
+│   └── User Rights
+│
+├── Terms & Conditions
+│   ├── Website Rules
+│   ├── User Responsibilities
+│   ├── Content Usage
+│   ├── Account Rules
+│   ├── Prohibited Activities
+│   └── Termination Policy
+│
+├── Disclaimer
+│   ├── Download Risks
+│   ├── Third-Party Content
+│   ├── Copyright Disclaimer
+│   ├── Accuracy Disclaimer
+│   └── Affiliate Disclosure
+│
+├── DMCA Policy
+│   ├── Copyright Claims
+│   ├── Takedown Requests
+│   ├── Counter Notifications
+│   └── Contact Information
+│
+├── Cookies Policy
+│   ├── What Cookies Are
+│   ├── Types of Cookies
+│   ├── Analytics Cookies
+│   ├── Advertising Cookies
+│   └── Disable Cookies Guide
+│
+├── Community Guidelines
+│   ├── Forum Rules
+│   ├── Chat Rules
+│   ├── User Conduct
+│   ├── Toxic Behavior Policy
+│   └── Ban System
+│
+├── Refund Policy
+│   ├── Premium Membership Refunds
+│   ├── Store Purchases
+│   ├── Eligibility
+│   └── Processing Time
+│
+├── Affiliate Disclosure
+│   ├── Sponsored Content
+│   ├── Affiliate Links
+│   ├── Advertisements
+│   └── Monetization Transparency
+│
+├── Accessibility Statement
+│   ├── Accessibility Features
+│   ├── Screen Reader Support
+│   ├── Keyboard Navigation
+│   └── Contact Accessibility Team
+│
+├── Security Policy
+│   ├── Data Protection
+│   ├── Account Security
+│   ├── Vulnerability Reports
+│   └── Two-Factor Authentication
+│
+└── Sitemap.xml
+    ├── Main Pages
+    ├── Games Pages
+    ├── News Pages
+    └── Categories
+Professional Footer Legal Navigation
+------------------------------------------------
+COMPANY
+- About Us
+- Careers
+- Contact
+
+LEGAL
+- Privacy Policy
+- Terms & Conditions
+- Disclaimer
+- DMCA Policy
+- Cookies Policy
+
+SUPPORT
+- FAQs
+- Help Center
+- Report Problem
+
+SOCIAL
+- YouTube
+- Discord
+- Instagram
+------------------------------------------------
+Recommended Important Pages ⭐
+MUST HAVE
+
+✅ About Us
+✅ Contact Us
+✅ Privacy Policy
+✅ Terms & Conditions
+✅ Disclaimer
+✅ DMCA Policy
+
+PROFESSIONAL EXTRA PAGES
+
+✅ Cookies Policy
+✅ Refund Policy
+✅ Community Guidelines
+✅ Affiliate Disclosure
+✅ Accessibility Statement
+✅ Security Policy
+
+Professional URL Structure
+/about
+/contact
+/privacy-policy
+/terms-and-conditions
+/disclaimer
+/dmca
+/cookies-policy
+/community-guidelines
+/refund-policy
+/security-policy
+What Each Page Does
+Page	Purpose
+About Us	Introduce your brand
+Privacy Policy	Explain user data usage
+Terms	Rules for using website
+Disclaimer	Protect against liabilities
+DMCA	Handle copyright issues
+Cookies Policy	Explain cookie tracking
+Refund Policy	Payment/refund rules
+Community Guidelines	User behavior rules
+Professional Features for Legal Pages
+
+✅ Clean Minimal Design
+✅ Easy Navigation
+✅ Searchable Content
+✅ Last Updated Date
+✅ Table of Contents
+✅ Mobile Responsive
+✅ Dark Mode Support
+✅ Print Friendly Layout
+
